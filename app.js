@@ -5,22 +5,52 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
-// App entry point
-function init() {
- getEmployees();
-}
-
 // Gather user input
 function getEmployees() {
  inquirer.prompt(questions.mgrQuestions)
  .then(mgrAnswers => {
-  console.log(mgrAnswers);
   inquirer.prompt(questions.empQuestions)
   .then(empAnswers => {
-   console.log(empAnswers);
+   console.log(getTeam(mgrAnswers, empAnswers));
   });
  });
 }
 
-// Start the app
-init();
+// Build an array of Employees based on answers provided by the user
+function getTeam(mgrAnswers, empAnswers) {
+ const team =
+ [
+  new Manager(
+   mgrAnswers.name,
+   mgrAnswers.id,
+   mgrAnswers.email,
+   mgrAnswers.officeNumber
+  )
+ ];
+ empAnswers.employees.forEach(emp => {
+  if (emp.role === "Intern") {
+   team.push(
+    new Intern(
+     emp.name,
+     emp.id,
+     emp.email,
+     emp.school
+    )
+   );
+  } else {
+   team.push(
+    new Engineer(
+     emp.name,
+     emp.id,
+     emp.email,
+     emp.github
+    )
+   );
+  }
+ });
+
+ return team;
+}
+
+// Start the app by prompting for info
+getEmployees();
