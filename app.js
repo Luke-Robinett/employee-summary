@@ -4,14 +4,18 @@ const questions = require("./lib/questions");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const Team = require("./lib/Team");
 
 // Gather user input
 function getEmployees() {
  inquirer.prompt(questions.mgrQuestions)
  .then(mgrAnswers => {
+  const devTeam = new Team(new Manager());
+  devTeam.importManager(mgrAnswers);
   inquirer.prompt(questions.empQuestions)
   .then(empAnswers => {
-   console.log(getTeam(mgrAnswers, empAnswers));
+   devTeam.importEmployees(empAnswers.employees);
+   console.log(devTeam);
   });
  });
 }
