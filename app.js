@@ -5,6 +5,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Team = require("./lib/Team");
+const createHTML = require("./lib/createHTML");
 
 // App entry point
 function init() {
@@ -20,7 +21,9 @@ function init() {
   .then(empAnswers => {
    // Use these answers to add employees to the Team object
    devTeam.importEmployees(empAnswers.employees);
-   console.log(devTeam);
+   
+   // Finally, call the createHTML method, passing it the devTeam object
+   createHTML(devTeam);
   });
  });
 }
