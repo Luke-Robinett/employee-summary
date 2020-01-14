@@ -4,6 +4,9 @@
 ### Overview
 This Node.JS application asks the user for information about a development team, beginning with the team's manager and then each of the employees on the team. The user can enter as many or few employees as desired, and each employee can either be an intern or engineer. Once the app has gathered all needed details about the team, it dynamically generates a nicely formatted HTML page showing the org structure of the newly entered team.
 
+### Video Demo
+https://drive.google.com/file/d/1QtnqIMFktmAdvL8DSMtww-9yk2jqyTPZ/view
+
 ### Libraries
 This app utilizes the inquirer Node.JS package
 
