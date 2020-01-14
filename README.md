@@ -8,7 +8,7 @@ This Node.JS application asks the user for information about a development team,
 https://drive.google.com/file/d/1QtnqIMFktmAdvL8DSMtww-9yk2jqyTPZ/view
 
 ### Libraries
-This app utilizes the inquirer Node.JS package
+This app utilizes the [inquirer](https://www.npmjs.com/package/inquirer) Node.JS package
 
 ### Approach
 An object-oreinted approach was taken in representing the business objects and defining how they interact with one another.
